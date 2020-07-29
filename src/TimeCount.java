@@ -18,7 +18,7 @@ public class TimeCount {
     }
 
     void printTimeCountInfo() {
-        System.out.println(sec + "seconds " + min + "minutes" + hour + " hour");
+        System.out.println(sec + "seconds " + min + " minutes " + hour + " hour");
     }
 
     //int TimeBetween() {
@@ -66,7 +66,11 @@ public class TimeCount {
         Start.printTimeCountInfo();
         Finish.printTimeCountInfo();
         int total  = Finish.totalSec() - Start.totalSec();
-        System.out.println(total);
+        System.out.println("Промежуток времени составляет " +  total + " минут" + "или" + "");
+        System.out.println(Start.totalSec());
+        System.out.println(Finish.totalSec());
+
+
 
 
 
