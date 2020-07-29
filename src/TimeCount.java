@@ -24,9 +24,9 @@ public class TimeCount {
     //int TimeBetween() {
     //    return
     // }
-    int totalSec() {
-        return (hour * 60 + min) * 60 + sec;
-    }
+//    int totalSec() {
+//        return (hour * 60 + min) * 60 + sec;
+//    }
 
     // int Reduction() {
     //       return sec = totalSec % 60;
@@ -63,6 +63,8 @@ public class TimeCount {
     public static void main(String[] args) {
         TimeCount Start = new TimeCount(26, 25, 1);
         TimeCount Finish = new TimeCount(26, 25, 2);
+        Start.printTimeCountInfo();
+        Finish.printTimeCountInfo();
 
 
     }
