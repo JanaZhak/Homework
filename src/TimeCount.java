@@ -1,79 +1,75 @@
+import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
+
 import java.sql.Time;
 
 public class TimeCount {
-    // private int timeStart;
-    //  private int timeFinish;
+
     private int hour;
     private int min;
     private int sec;
 
     public TimeCount() {
-
     }
 
     public TimeCount(int sec, int min, int hour) {
         this.sec = sec;
         this.min = min;
         this.hour = hour;
+
     }
+
+    public TimeCount(int seconds) { //конструктор, получающий  часы, минуты и секунды
+//    по отдельности.
+        sec = seconds % 60;
+        min = (seconds % 3600) / 60;
+        hour = seconds / 3600;
+    }
+
+   // public TimeCount(int hour, int min, int sec) { // конструктор, получающий общее кол-во секунд
+   // sec =  (hour * 60 + min) * 60 + sec;
+
+   // }
+
 
     void printTimeCountInfo() {
-        System.out.println(sec + "seconds " + min + " minutes " + hour + " hour");
+        System.out.println(sec + " second(s) " + min + " minute(s) " + hour + " hour(s)");
+    }//метод для вывода данных
+
+
+    int totalSec() {
+        return (hour * 60 + min) * 60 + sec;
+    } // метод для получения полного количества секунд в объекте
+
+    public void equal() { //метод сравнения двух объектов
+        if (totalSec() < 0) {
+            System.out.println("Please, enter correct time");
+        } else {
+            System.out.println(totalSec());
+        }
     }
 
-    //int TimeBetween() {
-    //    return
-    // }
-   int totalSec() {
-      return (hour * 60 + min) * 60 + sec;
-   }
-
-    // int Reduction() {
-    //       return sec = totalSec % 60;
-    //    return min = (totalSec - sec) / 60;
-    //   return  hours = (min - (min%60)) / 60;
-//    }
-
-//}
-//
-    public int getHour() {
-        return hour;
-    }
-
-    public void setHour(int hour) {
-        this.hour = hour;
-    }
-
-    public int getMin() {
-        return min;
-    }
-
-    public void setMin(int min) {
-        this.min = min;
-    }
-
-    public int getSec() {
-        return sec;
-    }
-
-    public void setSec(int sec) {
-        this.sec = sec;
-    }
 
     public static void main(String[] args) {
         TimeCount Start = new TimeCount(26, 25, 1);
-        TimeCount Finish = new TimeCount(26, 25, 2);
+        TimeCount Finish = new TimeCount(27, 26, 2);
         Start.printTimeCountInfo();
         Finish.printTimeCountInfo();
-        int total  = Finish.totalSec() - Start.totalSec();
-        System.out.println("Промежуток времени составляет " +  total + " минут" + "или" + "");
-        System.out.println(Start.totalSec());
-        System.out.println(Finish.totalSec());
+        int seconds = Finish.totalSec() - Start.totalSec();
+        System.out.println(Start.equals(Finish));
+        System.out.print("Промежуток времени составляет " + seconds + " секунд," + " что составляет " + "");
 
 
-
+        TimeCount Seconds = new TimeCount(seconds);
+        Seconds.printTimeCountInfo();
 
 
     }
 }
 
+
+//   Создать класс и объекты описывающие промежуток времени. Сам промежуток
+//    в классе должен задаваться тремя свойствами: секундами, минутами, часами.
+//    Сделать методы для получения полного количества секунд в объекте, сравнения
+//    двух объектов. Создать
+//    два конструктора: получающий общее количество секунд, и часы, минуты и секунды
+//    по отдельности. Сделать метод для вывода данных.
