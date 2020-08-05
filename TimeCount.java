@@ -7,20 +7,19 @@ public class TimeCount {
     public TimeCount() {
     }
 
-    public TimeCount(int sec, int min, int hour) {
+    public TimeCount(int sec, int min, int hour) {   
         if (sec < 0 || min < 0 || hour < 0) {
             System.out.println("Please, enter correct time");
         } else {
             this.sec = sec;
             this.min = min;
             this.hour = hour;
-            // конструктор, получающий общее кол-во секунд
-
+			this.seconds = (hour * 60 + min) * 60 + sec;// конструктор, получающий общее кол-во секунд
+           
         }
     }
 
-    public TimeCount(int seconds) {
-//    по отдельности.
+    public TimeCount(int seconds) { //конструктор, получающий  часы, минуты и секунды по отдельности
         if (seconds < 0) {
             System.out.println("Please, enter correct time");
         } else
@@ -29,10 +28,7 @@ public class TimeCount {
         sec = seconds - hour * 3600 - min * 60;
     }
 
-    // public TimeCount(int hour, int min, int sec) {  //конструктор, получающий  часы, минуты и секунды
-    // sec =  (hour * 60 + min) * 60 + sec;
-    // }
-
+    
 
     void printTimeCountInfo() {  //метод для вывода данных
 
@@ -45,11 +41,11 @@ public class TimeCount {
         return (hour * 60 + min) * 60 + sec;
     }
 
-//   public boolean equal(finish, TimeCount start) { //  ????? метод сравнения двух объектов ????
-//                if (start.totalSec() == finish.totalSec()) {
-//            return true;}
-//                else{
-//                    return false;}
+   public boolean equalsTimecount(Timecount cir) { //метод сравнения двух объектов 
+               if (this.totalSec() == cir.totalSec()) {
+           return true;}
+               else{
+                   return false;}
 
 
     public static void main(String[] args) {
@@ -58,16 +54,17 @@ public class TimeCount {
         start.printTimeCountInfo();
         finish.printTimeCountInfo();
         int seconds = finish.totalSec() - start.totalSec();
-        System.out.println(start.equals(finish));
-        if (seconds < 0) {
+         TimeCount Seconds = new TimeCount(seconds);
+        
+		if (start.equals(finish) {
             System.out.println("Please, enter correct time");
         } else {
-            System.out.print("Промежуток времени составляет " + seconds + " секунд," + " что составляет " + "");
+            System.out.print("Промежуток времени составляет " + seconds + " секунд," + " что составляет " + Seconds.printTimeCountInfo());
         }
 
 
-        TimeCount Seconds = new TimeCount(seconds);
-        Seconds.printTimeCountInfo();
+       
+        
 
 
     }
