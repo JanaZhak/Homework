@@ -7,15 +7,14 @@ public class TimeCount {
     public TimeCount() {
     }
 
-    public TimeCount(int sec, int min, int hour) {   
+    public TimeCount(int sec, int min, int hour) {
         if (sec < 0 || min < 0 || hour < 0) {
             System.out.println("Please, enter correct time");
         } else {
             this.sec = sec;
             this.min = min;
             this.hour = hour;
-			this.seconds = (hour * 60 + min) * 60 + sec;// конструктор, получающий общее кол-во секунд
-           
+
         }
     }
 
@@ -28,7 +27,6 @@ public class TimeCount {
         sec = seconds - hour * 3600 - min * 60;
     }
 
-    
 
     void printTimeCountInfo() {  //метод для вывода данных
 
@@ -41,11 +39,13 @@ public class TimeCount {
         return (hour * 60 + min) * 60 + sec;
     }
 
-   public boolean equalsTimecount(Timecount cir) { //метод сравнения двух объектов 
-               if (this.totalSec() == cir.totalSec()) {
-           return true;}
-               else{
-                   return false;}
+    public boolean equalsTimecount(TimeCount cir) { //метод сравнения двух объектов
+        if (this.totalSec() == cir.totalSec()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 
     public static void main(String[] args) {
@@ -54,17 +54,14 @@ public class TimeCount {
         start.printTimeCountInfo();
         finish.printTimeCountInfo();
         int seconds = finish.totalSec() - start.totalSec();
-         TimeCount Seconds = new TimeCount(seconds);
-        
-		if (start.equals(finish) {
+        TimeCount Seconds = new TimeCount(seconds);
+
+        if (start.equals(finish)) {
             System.out.println("Please, enter correct time");
-        } else {
-            System.out.print("Промежуток времени составляет " + seconds + " секунд," + " что составляет " + Seconds.printTimeCountInfo());
+        } else{
+            System.out.print("Промежуток времени составляет " + seconds + " секунд," + " что составляет " + "");
+            Seconds.printTimeCountInfo();
         }
-
-
-       
-        
 
 
     }
