@@ -1,46 +1,66 @@
-class Circle{
 
-           private double x; // абсцисса центра
-        private double y; // ордината центра
-        private double radius; //радиус
 
-    public interface Figure {
-        void draw();
-        double getArea();
-      }
+interface Figure {
+    double perimeter();
+    double squareSide();
+}
 
-        public void Circle (double r){
-        this.radius = r;
+
+ class Circle implements Figure {
+
+    private double r; //радиус
+
+    public Circle(double r) {
+        this.r = r;
     }
 
-
-    public void draw() {
-        System.out.println("Рисуем круг");
+    @Override
+    public double perimeter() {
+        return 2 * Math.PI * r;
     }
 
-    public double getArea(){
-        return Math.PI*this.radius*this.radius; // Вычисляем площадь
+     @Override
+     public double squareSide() {
+         return 0;
+     }
+
+
+ }
+class Square implements Figure{
+    private int a;
+    private int b;
+
+    public Square (int a, int b){
+        this.a=a;
+        this.b=b;
+    }
+    @Override
+    public double perimeter() {
+        return 2*(a+b);
     }
 
-    public double getRadius(){
-        return this.radius;
+        @Override
+    public double squareSide() {
+        return a*b;
     }
-    
 
         public static void main(String[] args) {
-            // реализуем интерфейс
-            Circle one = new Circle(5) {
+        // реализуем интерфейс
+        Figure circle = new Circle(5);
+        Figure square=new Square(1,2);
+            System.out.println(circle.perimeter());
+            System.out.println(square.perimeter());
 
-                public void draw() {
-                    System.out.println("Рисуем круг");
-                }
 
 
-            };
-
-            one.draw();
-            System.out.println("Площадь = " + one.getArea());
-
-        }
+               }
 
 }
+
+
+
+//        3.Создайте интерфейс, который представляет геометрическую фигуру.
+//        Сделайте так, чтобы класс Circle реализовывал ваш интерфейс.
+//        Создайте класс Квадрат, который тоже реализует интерфейс Геометрическая фигура.
+//        Поместите в переменную типа Фигура сначала круг, и вызовите несколько методов.
+//        Потом поместите в нее квадрат, и вызовите несколько методов. Какие принципы ООП вы использовали в этом задании?
