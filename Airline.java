@@ -1,9 +1,10 @@
+package AirlineTask;
 public class Airline {
-    private String destination; //пункт назначения
-    private String flightNumber; //номер рейса
-    private String typeOfAircraft; //тип самолета
-    private String departure; // время вылета
-    private String weekday; //день недели
+     String destination; //пункт назначения
+     String flightNumber; //номер рейса
+     String typeOfAircraft; //тип самолета
+     String departure; // время вылета
+     String weekday; //день недели
 
 ///конструктор
     public Airline(String destination, String flightNumber, String typeOfAircraft, String departure, String weekday) {
