@@ -12,8 +12,15 @@ public class Schedule {
         Airline[4] = new Airline("Warsaw", "005", "TU", "14.00 PM", "Saturday");
 
         if (this.destination == Roma){
-            System.out.println();
+            System.out.println("Destination: " + this.destination + "\nFlight number: " + flightnumer);
         }
-                {
+        if (this.weekday == Tuesday){
+            System.out.println("Weekday "+ this.weekday + "\nFlight number: " + flightnumer);
+            if ()
         }
     }
+    Вывести:
+//a) список рейсов для заданного пункта назначения;
+//b) список рейсов для заданного дня недели;
+//c) список рейсов для заданного дня недели, время вылета для которых
+//больше заданного
